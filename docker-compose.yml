@@ -1,0 +1,39 @@
+# ~~~ database service ~~~
+#
+#                    ##        .
+#              ## ## ##       ==
+#           ## ## ## ##      ===
+#       /""""""""""""""""\___/ ===
+#  ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~
+#       \______ o          __/
+#         \    \        __/
+#          \____\______/
+#
+#          |          |
+#       __ |  __   __ | _  __   _
+#      /  \| /  \ /   |/  / _\ |
+#      \__/| \__/ \__ |\_ \__  |
+#
+# ~~~ Sambar Server for Sharing File ~~~
+version : '3'
+
+services:
+  redis:
+    image: samba
+    container_name: samba-server
+    networks:
+      - default
+    ports:
+      - "137:137/udp"
+      - "138:138/udp"
+      - "139:139/tcp"
+      - "445:445/tcp"
+    read_only: true
+    tmpfs:
+      - /tmp
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    volumes:
+      - /home/ucub/coba:/home/ucub/coba:z
+    command: '-s "File_Sharing;/home/ucub/coba"'
