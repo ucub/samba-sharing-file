@@ -19,7 +19,7 @@ version : '3'
 
 services:
   redis:
-    image: samba
+    image: samba #image is ready,if not ready pull from dperson/samba
     container_name: samba-server
     networks:
       - default
@@ -35,5 +35,5 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - /home/ucub/coba:/home/ucub/coba:z
-    command: '-s "File_Sharing;/home/ucub/coba"'
+      - /home/ucub/coba:/home/ucub/coba:z #path folder for sharing
+    command: '-s "File_Sharing;/home/ucub/coba"' #File_Sharing is name alias of path sharing
