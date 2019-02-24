@@ -19,7 +19,7 @@ version : '3'
 
 services:
   redis:
-    image: samba #image is ready,if not ready pull from dperson/samba
+    image: samba #image is ready,if not ready pull from yusufsanjaya24/samba
     container_name: samba-server
     networks:
       - default
